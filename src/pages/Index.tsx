@@ -134,8 +134,8 @@ const Index = () => {
       <div
         className={cn(
           "z-10 w-full max-w-[567px]",
-          // Mobile: centered and below the background elements
-          "absolute left-1/2 transform -translate-x-1/2 top-[450px] text-center px-6",
+          // Mobile: centered and below the background elements (SVG goes from -187px to 777px)
+          "absolute left-1/2 transform -translate-x-1/2 top-[800px] text-center px-6",
           // Desktop: positioned as in Figma
           "lg:absolute lg:left-[341px] lg:top-[590px] lg:w-[567px] lg:h-[252px] lg:text-left lg:transform-none lg:px-0",
         )}
