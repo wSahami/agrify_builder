@@ -166,7 +166,7 @@ const Index = () => {
         className={cn(
           "z-10",
           // Mobile: centered below text
-          "absolute left-1/2 transform -translate-x-1/2 top-[500px] w-full px-6",
+          "absolute left-1/2 transform -translate-x-1/2 top-[650px] w-full px-6",
           // Desktop: positioned as in Figma
           "lg:absolute lg:left-[1210px] lg:top-[913px] lg:transform-none lg:w-auto lg:px-0",
         )}
