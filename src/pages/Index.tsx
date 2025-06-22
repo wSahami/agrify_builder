@@ -108,14 +108,52 @@ const Index = () => {
           "pt-20 lg:pt-0",
         )}
       >
-        {/* Left column - Text content */}
+        {/* Mobile: SVG first */}
+        <div
+          className={cn(
+            "relative flex items-center justify-center",
+            // Mobile: show first, full width
+            "order-1 w-full h-64",
+            // Desktop: hide (will be shown in right column)
+            "lg:hidden",
+          )}
+        >
+          <svg
+            width="964"
+            height="964"
+            viewBox="0 0 964 777"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full max-w-none"
+          >
+            <g clipPath="url(#clip0_1_17)">
+              <path d="M964 -187H0V777H964V-187Z" fill="#006837" />
+              <path
+                d="M0 -187H964C964 345.42 532.42 777 0 777V-187Z"
+                fill="#8BC53F"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1_17">
+                <rect
+                  width="964"
+                  height="964"
+                  fill="white"
+                  transform="translate(0 -187)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Mobile: Text second, Desktop: Text column (left) */}
         <div
           className={cn(
             "flex flex-col justify-end",
-            // Mobile: full width, padding
-            "w-full px-6 pb-8 lg:pb-20",
+            // Mobile: show second, full width, padding
+            "order-2 w-full px-6 pb-8",
             // Desktop: half width, specific positioning
-            "lg:w-1/2 lg:pl-[341px] lg:pr-8",
+            "lg:order-1 lg:w-1/2 lg:pl-[341px] lg:pr-8 lg:pb-20",
           )}
         >
           <h1
@@ -141,22 +179,24 @@ const Index = () => {
           </h1>
         </div>
 
-        {/* Right column - Background and buttons */}
+        {/* Mobile: Buttons third, Desktop: Right column - Background and buttons */}
         <div
           className={cn(
             "flex flex-col",
-            // Mobile: full width
-            "w-full",
-            // Desktop: half width
-            "lg:w-1/2",
+            // Mobile: show third, full width
+            "order-3 w-full",
+            // Desktop: show second, half width
+            "lg:order-2 lg:w-1/2",
           )}
         >
-          {/* Top row - Background SVG (circle and square) */}
+          {/* Desktop only: Background SVG (circle and square) */}
           <div
             className={cn(
-              "flex-1 relative flex items-center justify-center",
-              // Mobile: smaller height
-              "h-64 lg:h-auto",
+              "relative flex items-center justify-center",
+              // Mobile: hidden
+              "hidden lg:flex",
+              // Desktop: flex-1 to take available space
+              "lg:flex-1",
             )}
           >
             <svg
@@ -165,10 +205,7 @@ const Index = () => {
               viewBox="0 0 964 777"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={cn(
-                // Take full width and height of container
-                "w-full h-full max-w-none",
-              )}
+              className="w-full h-full max-w-none"
             >
               <g clipPath="url(#clip0_1_17)">
                 <path d="M964 -187H0V777H964V-187Z" fill="#006837" />
@@ -190,7 +227,7 @@ const Index = () => {
             </svg>
           </div>
 
-          {/* Bottom row - Call-to-action buttons */}
+          {/* Call-to-action buttons */}
           <div
             className={cn(
               "flex items-center justify-center p-6",
