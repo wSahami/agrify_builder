@@ -121,10 +121,12 @@ const Index = () => {
           <h1
             className={cn(
               "font-bold leading-[98.477%]",
-              // Mobile: smaller text, center aligned
-              "text-4xl sm:text-5xl md:text-6xl text-center",
-              // Desktop: exact Figma size, left aligned
-              "lg:text-[128px] lg:text-left",
+              // Mobile: responsive sizing, center aligned
+              "text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-center",
+              // Desktop and large screens: responsive scaling
+              "lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-[128px] lg:text-left",
+              // Ensure text never overflows container
+              "break-words hyphens-auto",
             )}
           >
             <span className="text-black">tech that</span>
