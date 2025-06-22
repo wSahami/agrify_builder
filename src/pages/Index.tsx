@@ -164,10 +164,8 @@ const Index = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={cn(
-                // Mobile: smaller, centered
-                "w-64 h-64",
-                // Desktop: larger, positioned
-                "lg:w-96 lg:h-96",
+                // Take full width and height of container
+                "w-full h-full max-w-none",
               )}
             >
               <g clipPath="url(#clip0_1_17)">
