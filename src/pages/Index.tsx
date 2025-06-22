@@ -203,8 +203,8 @@ const Index = () => {
                 "px-8 py-4 bg-[#006837] text-[#FFF4DE] rounded-[45.5px] text-xl font-medium hover:bg-[#004d26] transition-colors",
                 // Mobile: full width on small screens
                 "w-full sm:w-auto",
-                // Desktop: fixed width
-                "lg:w-[181px] lg:h-[56px]",
+                // Desktop: auto width to fit content
+                "lg:w-auto",
               )}
             >
               start growing
@@ -216,8 +216,8 @@ const Index = () => {
                   "px-8 py-4 bg-[#8BC53F] text-black rounded-[45.5px] text-xl font-medium hover:bg-[#7AB332] transition-colors",
                   // Mobile: flexible width
                   "flex-1 sm:flex-none",
-                  // Desktop: fixed width
-                  "lg:w-[191px] lg:h-[56px]",
+                  // Desktop: auto width to fit content
+                  "lg:w-auto",
                 )}
               >
                 contact us
