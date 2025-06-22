@@ -193,7 +193,7 @@ const Index = () => {
           {/* Desktop only: Background SVG (circle and square) */}
           <div
             className={cn(
-              "relative flex items-center justify-center",
+              "relative flex items-center justify-center overflow-hidden",
               // Mobile: hidden
               "hidden lg:flex",
               // Desktop: flex-1 to take available space
@@ -207,6 +207,7 @@ const Index = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="w-full h-full max-w-none"
+              style={{ marginTop: "-10%" }}
             >
               <g clipPath="url(#clip0_1_17)">
                 <path d="M964 -187H0V777H964V-187Z" fill="#006837" />
