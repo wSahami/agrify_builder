@@ -6,37 +6,7 @@ const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FFF4DE] relative overflow-hidden">
-      {/* Background semicircle - responsive positioning */}
-      <div className="absolute top-[-187px] right-0 lg:top-[-187px] lg:right-0 md:top-[-100px] md:right-[-200px] sm:top-[-50px] sm:right-[-300px]">
-        <svg
-          width="964"
-          height="964"
-          viewBox="0 0 964 777"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-[964px] h-[964px] lg:w-[964px] lg:h-[964px] md:w-[600px] md:h-[600px] sm:w-[400px] sm:h-[400px]"
-        >
-          <g clipPath="url(#clip0_1_17)">
-            <path d="M964 -187H0V777H964V-187Z" fill="#006837" />
-            <path
-              d="M0 -187H964C964 345.42 532.42 777 0 777V-187Z"
-              fill="#8BC53F"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_1_17">
-              <rect
-                width="964"
-                height="964"
-                fill="white"
-                transform="translate(0 -187)"
-              />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
-
+    <div className="min-h-screen bg-[#FFF4DE] relative">
       {/* Mobile menu toggle button */}
       <div className="lg:hidden absolute top-6 left-6 z-50">
         <button
@@ -91,124 +61,173 @@ const Index = () => {
       )}
 
       {/* Desktop left sidebar navigation */}
-      <div className="hidden lg:block">
-        <div className="absolute left-[58px] top-[375px] z-10">
-          {/* Selection highlight rounded rectangle */}
-          <div className="w-[170px] h-[56px] bg-[#8BC53F] rounded-[45.5px] absolute"></div>
+      <div className="hidden lg:block absolute left-[58px] top-[375px] z-50">
+        {/* Selection highlight rounded rectangle */}
+        <div className="w-[170px] h-[56px] bg-[#8BC53F] rounded-[45.5px] absolute"></div>
 
-          {/* Logo */}
-          <div className="absolute left-[27px] top-[15px] text-xl font-medium text-black">
-            agrify.ai
-          </div>
+        {/* Logo */}
+        <div className="absolute left-[27px] top-[15px] text-xl font-medium text-black">
+          agrify.ai
         </div>
-
-        {/* Desktop navigation menu items */}
-        <div className="absolute left-[85px] top-[459px] z-10">
-          <nav className="space-y-[27px]">
-            <a
-              href="#tech"
-              className="block text-xl font-medium text-black hover:text-[#006837] transition-colors"
-            >
-              tech
-            </a>
-            <a
-              href="#solutions"
-              className="block text-xl font-medium text-black hover:text-[#006837] transition-colors"
-            >
-              solutions
-            </a>
-            <a
-              href="#pricing"
-              className="block text-xl font-medium text-black hover:text-[#006837] transition-colors"
-            >
-              pricing
-            </a>
-          </nav>
-        </div>
-
-        {/* Small green circle next to navigation */}
-        <div className="absolute left-[178px] top-[382px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] z-10"></div>
       </div>
 
-      {/* Main hero text - responsive positioning */}
-      <div
-        className={cn(
-          "z-10 w-full max-w-[567px]",
-          // Mobile: centered and below the background elements (SVG goes from -187px to 777px)
-          "absolute left-1/2 transform -translate-x-1/2 top-[800px] text-center px-6",
-          // Desktop: positioned as in Figma
-          "lg:absolute lg:left-[341px] lg:top-[590px] lg:w-[567px] lg:h-[252px] lg:text-left lg:transform-none lg:px-0",
-        )}
-      >
-        <h1
-          className={cn(
-            "font-bold leading-[98.477%]",
-            // Mobile sizing
-            "text-4xl sm:text-5xl md:text-6xl",
-            // Desktop sizing
-            "lg:text-[128px]",
-          )}
-        >
-          <span className="text-black">tech that</span>
-          <br />
-          <span
-            className={cn(
-              "bg-gradient-to-r from-[#006837] via-[#006837] to-[#8BC53F] bg-clip-text text-transparent",
-            )}
+      {/* Desktop navigation menu items */}
+      <div className="hidden lg:block absolute left-[85px] top-[459px] z-50">
+        <nav className="space-y-[27px]">
+          <a
+            href="#tech"
+            className="block text-xl font-medium text-black hover:text-[#006837] transition-colors"
           >
-            Grows
-          </span>
-        </h1>
+            tech
+          </a>
+          <a
+            href="#solutions"
+            className="block text-xl font-medium text-black hover:text-[#006837] transition-colors"
+          >
+            solutions
+          </a>
+          <a
+            href="#pricing"
+            className="block text-xl font-medium text-black hover:text-[#006837] transition-colors"
+          >
+            pricing
+          </a>
+        </nav>
       </div>
 
-      {/* Call-to-action buttons - responsive positioning */}
+      {/* Small green circle next to navigation */}
+      <div className="hidden lg:block absolute left-[178px] top-[382px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] z-50"></div>
+
+      {/* Main flexbox layout - Mobile: single column, Desktop: two columns */}
       <div
         className={cn(
-          "z-10",
-          // Mobile: centered below text
-          "absolute left-1/2 transform -translate-x-1/2 top-[1050px] w-full px-6",
-          // Desktop: positioned as in Figma
-          "lg:absolute lg:left-[1210px] lg:top-[913px] lg:transform-none lg:w-auto lg:px-0",
+          "min-h-screen flex",
+          // Mobile: flex-col (stack vertically)
+          "flex-col lg:flex-row",
+          // Mobile: padding for mobile menu
+          "pt-20 lg:pt-0",
         )}
       >
+        {/* Left column - Text content */}
         <div
           className={cn(
-            "flex items-center gap-4",
-            // Mobile: vertical stack
-            "flex-col sm:flex-row sm:justify-center",
-            // Desktop: horizontal with specific gap
-            "lg:gap-[73px] lg:flex-row",
+            "flex flex-col justify-end",
+            // Mobile: full width, padding
+            "w-full px-6 pb-8 lg:pb-20",
+            // Desktop: half width, specific positioning
+            "lg:w-1/2 lg:pl-[341px] lg:pr-8",
           )}
         >
-          {/* Start growing button */}
-          <button
+          <h1
             className={cn(
-              "px-8 py-4 bg-[#006837] text-[#FFF4DE] rounded-[45.5px] text-xl font-medium hover:bg-[#004d26] transition-colors",
-              // Mobile: full width on small screens
-              "w-full sm:w-auto",
-              // Desktop: fixed width
-              "lg:w-[181px] lg:h-[56px]",
+              "font-bold leading-[98.477%]",
+              // Mobile: smaller text, center aligned
+              "text-4xl sm:text-5xl md:text-6xl text-center",
+              // Desktop: exact Figma size, left aligned
+              "lg:text-[128px] lg:text-left",
             )}
           >
-            start growing
-          </button>
-
-          {/* Contact us button and phone */}
-          <div className="flex items-center gap-4 w-full sm:w-auto">
-            <button
+            <span className="text-black">tech that</span>
+            <br />
+            <span
               className={cn(
-                "px-8 py-4 bg-[#8BC53F] text-black rounded-[45.5px] text-xl font-medium hover:bg-[#7AB332] transition-colors",
-                // Mobile: flexible width
-                "flex-1 sm:flex-none",
-                // Desktop: fixed width
-                "lg:w-[191px] lg:h-[56px]",
+                "bg-gradient-to-r from-[#006837] via-[#006837] to-[#8BC53F] bg-clip-text text-transparent",
               )}
             >
-              contact us
+              Grows
+            </span>
+          </h1>
+        </div>
+
+        {/* Right column - Background and buttons */}
+        <div
+          className={cn(
+            "flex flex-col",
+            // Mobile: full width
+            "w-full",
+            // Desktop: half width
+            "lg:w-1/2",
+          )}
+        >
+          {/* Top row - Background SVG (circle and square) */}
+          <div
+            className={cn(
+              "flex-1 relative flex items-center justify-center",
+              // Mobile: smaller height
+              "h-64 lg:h-auto",
+            )}
+          >
+            <svg
+              width="964"
+              height="964"
+              viewBox="0 0 964 777"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={cn(
+                // Mobile: smaller, centered
+                "w-64 h-64",
+                // Desktop: larger, positioned
+                "lg:w-96 lg:h-96",
+              )}
+            >
+              <g clipPath="url(#clip0_1_17)">
+                <path d="M964 -187H0V777H964V-187Z" fill="#006837" />
+                <path
+                  d="M0 -187H964C964 345.42 532.42 777 0 777V-187Z"
+                  fill="#8BC53F"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_17">
+                  <rect
+                    width="964"
+                    height="964"
+                    fill="white"
+                    transform="translate(0 -187)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+
+          {/* Bottom row - Call-to-action buttons */}
+          <div
+            className={cn(
+              "flex items-center justify-center p-6",
+              // Mobile: flex-col on small screens
+              "flex-col sm:flex-row gap-4",
+              // Desktop: flex-row
+              "lg:flex-row lg:gap-6 lg:pb-20",
+            )}
+          >
+            <button
+              className={cn(
+                "px-8 py-4 bg-[#006837] text-[#FFF4DE] rounded-[45.5px] text-xl font-medium hover:bg-[#004d26] transition-colors",
+                // Mobile: full width on small screens
+                "w-full sm:w-auto",
+                // Desktop: fixed width
+                "lg:w-[181px] lg:h-[56px]",
+              )}
+            >
+              start growing
             </button>
 
-            <div className="w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] flex items-center justify-center hover:bg-[#004d26] transition-colors cursor-pointer flex-shrink-0">
-              <Phone className="w-5 h-5 text-[#FFF4DE]" />
+            <div className="flex items-center gap-4 w-full sm:w-auto">
+              <button
+                className={cn(
+                  "px-8 py-4 bg-[#8BC53F] text-black rounded-[45.5px] text-xl font-medium hover:bg-[#7AB332] transition-colors",
+                  // Mobile: flexible width
+                  "flex-1 sm:flex-none",
+                  // Desktop: fixed width
+                  "lg:w-[191px] lg:h-[56px]",
+                )}
+              >
+                contact us
+              </button>
+
+              <div className="w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] flex items-center justify-center hover:bg-[#004d26] transition-colors cursor-pointer flex-shrink-0">
+                <Phone className="w-5 h-5 text-[#FFF4DE]" />
+              </div>
             </div>
           </div>
         </div>
