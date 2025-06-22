@@ -111,7 +111,7 @@ const Index = () => {
         {/* Mobile: SVG first */}
         <div
           className={cn(
-            "relative flex items-center justify-center",
+            "relative flex items-center justify-center overflow-hidden",
             // Mobile: show first, full width
             "order-1 w-full h-64",
             // Desktop: hide (will be shown in right column)
@@ -125,6 +125,7 @@ const Index = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="w-full h-full max-w-none"
+            style={{ marginTop: "-10%" }}
           >
             <g clipPath="url(#clip0_1_17)">
               <path d="M964 -187H0V777H964V-187Z" fill="#006837" />
