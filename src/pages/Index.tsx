@@ -174,28 +174,23 @@ const Index = () => {
       >
         {/* Content container positioned vertically centered */}
         <div className="flex flex-col justify-center h-full relative">
-          {/* Moving selection highlight */}
-          <div
-            className={cn(
-              "w-[300px] h-[56px] bg-[#8BC53F] rounded-[45.5px] absolute transition-all duration-300 ease-in-out",
-              activeSection === "home" && "top-[0px]",
-              activeSection === "tech" && "top-[84px]",
-              activeSection === "solutions" && "top-[168px]",
-              activeSection === "pricing" && "top-[252px]",
-            )}
-          />
-
-          {/* Logo - clickable to scroll to top */}
-          <button
-            onClick={() => scrollToSection("home")}
-            className="relative left-[40px] top-[15px] text-2xl font-medium text-black z-10 hover:text-[#006837] transition-colors mb-8"
-          >
-            agrify.ai
-          </button>
-
-          {/* Navigation menu items */}
+          {/* Navigation container */}
           <div className="relative left-[40px] z-10">
-            <nav className="space-y-[27px]">
+            <nav className="space-y-0">
+              {/* agrify.ai - home section */}
+              <button
+                onClick={() => scrollToSection("home")}
+                className={cn(
+                  "block text-xl font-medium transition-colors py-3 mb-6",
+                  activeSection === "home"
+                    ? "text-[#006837]"
+                    : "text-black hover:text-[#006837]",
+                )}
+              >
+                agrify.ai
+              </button>
+
+              {/* Other navigation items */}
               <button
                 onClick={() => scrollToSection("tech")}
                 className={cn(
@@ -232,15 +227,26 @@ const Index = () => {
             </nav>
           </div>
 
-          {/* Dark green circle - positioned within the menu container */}
+          {/* Moving selection highlight */}
+          <div
+            className={cn(
+              "absolute left-[20px] w-[300px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out",
+              activeSection === "home" && "top-[-12px]", // Align with agrify.ai
+              activeSection === "tech" && "top-[36px]", // Align with tech
+              activeSection === "solutions" && "top-[84px]", // Align with solutions
+              activeSection === "pricing" && "top-[132px]", // Align with pricing
+            )}
+          />
+
+          {/* Dark green circle - positioned to follow the highlight */}
           <div
             className={cn(
               "absolute right-[40px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] transition-all duration-300 ease-in-out",
-              // Move with the active section relative to container
-              activeSection === "home" && "top-[7px]",
-              activeSection === "tech" && "top-[91px]",
-              activeSection === "solutions" && "top-[175px]",
-              activeSection === "pricing" && "top-[259px]",
+              // Move with the active section relative to highlight positions
+              activeSection === "home" && "top-[-6px]",
+              activeSection === "tech" && "top-[42px]",
+              activeSection === "solutions" && "top-[90px]",
+              activeSection === "pricing" && "top-[138px]",
             )}
           />
         </div>
