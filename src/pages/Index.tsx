@@ -200,53 +200,19 @@ const Index = () => {
             </button>
           </nav>
         </div>
-      </div>
-        <nav className="space-y-[27px]">
-          <button
-            onClick={() => scrollToSection("tech")}
-            className={cn(
-              "block text-xl font-medium transition-colors py-3",
-              activeSection === "tech"
-                ? "text-[#006837]"
-                : "text-black hover:text-[#006837]",
-            )}
-          >
-            tech
-          </button>
-          <button
-            onClick={() => scrollToSection("solutions")}
-            className={cn(
-              "block text-xl font-medium transition-colors py-3",
-              activeSection === "solutions"
-                ? "text-[#006837]"
-                : "text-black hover:text-[#006837]",
-            )}
-          >
-            solutions
-          </button>
-          <button
-            onClick={() => scrollToSection("pricing")}
-            className={cn(
-              "block text-xl font-medium transition-colors py-3",
-              activeSection === "pricing"
-                ? "text-[#006837]"
-                : "text-black hover:text-[#006837]",
-            )}
-          >
-            pricing
-          </button>
-        </nav>
-      </div>
 
-      {/* Dark green circle next to navigation - moves with the highlight */}
-      <div
-        className={cn(
-          "hidden lg:block fixed left-[178px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] z-50 transition-all duration-300 ease-in-out",
-          // Move with the active section
-          activeSection === "home" && "top-[382px]",
-          activeSection === "tech" && "top-[466px]", // 382 + 84
-          activeSection === "solutions" && "top-[550px]", // 382 + 168
-          activeSection === "pricing" && "top-[634px]", // 382 + 252
+        {/* Dark green circle - positioned within the menu container */}
+        <div
+          className={cn(
+            "absolute right-[-25px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] transition-all duration-300 ease-in-out",
+            // Move with the active section relative to container
+            activeSection === "home" && "top-[32px]",
+            activeSection === "tech" && "top-[116px]",
+            activeSection === "solutions" && "top-[200px]",
+            activeSection === "pricing" && "top-[284px]",
+          )}
+        ></div>
+      </div>
           // Hide/show with menu
           isMenuVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
         )}
