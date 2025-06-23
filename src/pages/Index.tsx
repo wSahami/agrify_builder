@@ -16,6 +16,9 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuVisible, setIsMenuVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [hideMenuTimeout, setHideMenuTimeout] = useState<NodeJS.Timeout | null>(
+    null,
+  );
 
   // Scroll to section functionality
   const scrollToSection = (sectionId: string) => {
