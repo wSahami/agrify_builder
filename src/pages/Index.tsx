@@ -48,7 +48,10 @@ const Index = () => {
             scrollPosition < offsetTop + offsetHeight
           ) {
             currentSection = sectionId;
-            setActiveSection(sectionId);
+            if (currentSection !== activeSection) {
+              console.log(`Section changed to: ${currentSection}`);
+              setActiveSection(sectionId);
+            }
             break;
           }
         }
