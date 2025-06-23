@@ -62,7 +62,7 @@ const Index = () => {
         // Scrolling up AND in home section - show menu
         setIsMenuVisible(true);
       }
-      // If scrolling up but NOT in home section, keep menu hidden
+      // If scrolling up but NOT in home section, menu stays hidden unless mouse triggers it
 
       setLastScrollY(currentScrollY);
     };
