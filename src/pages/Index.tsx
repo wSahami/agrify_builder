@@ -117,7 +117,14 @@ const Index = () => {
       )}
 
       {/* Desktop left sidebar navigation with moving highlight */}
-      <div className="hidden lg:block fixed left-[58px] top-[375px] z-50">
+      <div
+        className={cn(
+          "hidden lg:block fixed left-[58px] top-[375px] z-50 transition-all duration-300 ease-in-out",
+          isMenuVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0",
+        )}
+      >
         {/* Moving selection highlight */}
         <div
           className={cn(
@@ -136,7 +143,14 @@ const Index = () => {
       </div>
 
       {/* Desktop navigation menu items */}
-      <div className="hidden lg:block fixed left-[85px] top-[459px] z-50">
+      <div
+        className={cn(
+          "hidden lg:block fixed left-[85px] top-[459px] z-50 transition-all duration-300 ease-in-out",
+          isMenuVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0",
+        )}
+      >
         <nav className="space-y-[27px]">
           <button
             onClick={() => scrollToSection("tech")}
@@ -174,8 +188,21 @@ const Index = () => {
         </nav>
       </div>
 
-      {/* Small green circle next to navigation */}
-      <div className="hidden lg:block fixed left-[178px] top-[382px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] z-50"></div>
+      {/* Dark green circle next to navigation - moves with the highlight */}
+      <div
+        className={cn(
+          "hidden lg:block fixed left-[178px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] z-50 transition-all duration-300 ease-in-out",
+          // Move with the active section
+          activeSection === "home" && "top-[382px]",
+          activeSection === "tech" && "top-[466px]", // 382 + 84
+          activeSection === "solutions" && "top-[550px]", // 382 + 168
+          activeSection === "pricing" && "top-[634px]", // 382 + 252
+          // Hide/show with menu
+          isMenuVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0",
+        )}
+      ></div>
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen">
