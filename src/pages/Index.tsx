@@ -31,19 +31,10 @@ const Index = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Handle menu visibility based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down - hide menu
-        setIsMenuVisible(false);
-      } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
-        // Scrolling up or near top - show menu
-        setIsMenuVisible(true);
-      }
-      setLastScrollY(currentScrollY);
-
-      // Handle active section tracking
+      // Handle active section tracking first
       const sections = ["home", "tech", "solutions", "pricing"];
       const scrollPosition = window.scrollY + 200;
+      let currentSection = "home";
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -53,11 +44,27 @@ const Index = () => {
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
           ) {
+            currentSection = sectionId;
             setActiveSection(sectionId);
             break;
           }
         }
       }
+
+      // Handle menu visibility based on scroll direction and section
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide menu
+        setIsMenuVisible(false);
+      } else if (currentScrollY <= 100) {
+        // Near top - always show menu
+        setIsMenuVisible(true);
+      } else if (currentScrollY < lastScrollY && currentSection === "home") {
+        // Scrolling up AND in home section - show menu
+        setIsMenuVisible(true);
+      }
+      // If scrolling up but NOT in home section, keep menu hidden
+
+      setLastScrollY(currentScrollY);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
