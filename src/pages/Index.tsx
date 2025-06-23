@@ -99,6 +99,9 @@ const Index = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
+      if (hideMenuTimeout) {
+        clearTimeout(hideMenuTimeout);
+      }
     };
   }, [lastScrollY]);
 
