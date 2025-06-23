@@ -71,9 +71,25 @@ const Index = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
+      // Clear any existing timeout
+      if (hideMenuTimeout) {
+        clearTimeout(hideMenuTimeout);
+        setHideMenuTimeout(null);
+      }
+
       // Show menu when mouse is within 100px of the left edge or hovering over the menu
       if (e.clientX <= 100 || (e.clientX <= 400 && isMenuVisible)) {
         setIsMenuVisible(true);
+      } else if (e.clientX > 400 && isMenuVisible && window.scrollY > 100) {
+        // Hide menu after delay when mouse moves away and not at top
+        const timeout = setTimeout(() => {
+          const currentSection = activeSection;
+          // Only hide if not in home section or not at top
+          if (currentSection !== "home" && window.scrollY > 100) {
+            setIsMenuVisible(false);
+          }
+        }, 1000); // 1 second delay
+        setHideMenuTimeout(timeout);
       }
     };
 
