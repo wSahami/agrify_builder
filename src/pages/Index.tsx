@@ -106,7 +106,12 @@ const Index = () => {
             {/* Mobile logo */}
             <div className="mb-8">
               <div className="w-[170px] h-[56px] bg-[#8BC53F] rounded-[45.5px] flex items-center justify-center">
-                <div className="text-xl font-medium text-black">agrify.ai</div>
+                <button
+                  onClick={() => scrollToSection("home")}
+                  className="text-xl font-medium text-black"
+                >
+                  agrify.ai
+                </button>
               </div>
             </div>
 
@@ -135,12 +140,14 @@ const Index = () => {
         </div>
       )}
 
-      {/* Desktop left sidebar navigation with tan background */}
+      {/* Desktop sidebar navigation with tan background */}
       <div
         className={cn(
           "hidden lg:block fixed left-[20px] top-[350px] z-50 transition-all duration-300 ease-in-out",
-          "bg-[#FFF4DE] rounded-2xl p-8 shadow-lg",
-          isMenuVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+          "bg-[#FFF4DE] rounded-2xl p-8 shadow-lg border border-[#8BC53F]/20",
+          isMenuVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0",
         )}
       >
         {/* Moving selection highlight */}
@@ -211,12 +218,8 @@ const Index = () => {
             activeSection === "solutions" && "top-[200px]",
             activeSection === "pricing" && "top-[284px]",
           )}
-        ></div>
+        />
       </div>
-          // Hide/show with menu
-          isMenuVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-        )}
-      ></div>
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen">
