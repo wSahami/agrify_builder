@@ -135,41 +135,72 @@ const Index = () => {
         </div>
       )}
 
-      {/* Desktop left sidebar navigation with moving highlight */}
+      {/* Desktop left sidebar navigation with tan background */}
       <div
         className={cn(
-          "hidden lg:block fixed left-[58px] top-[375px] z-50 transition-all duration-300 ease-in-out",
-          isMenuVisible
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0",
+          "hidden lg:block fixed left-[20px] top-[350px] z-50 transition-all duration-300 ease-in-out",
+          "bg-[#FFF4DE] rounded-2xl p-8 shadow-lg",
+          isMenuVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
         )}
       >
         {/* Moving selection highlight */}
         <div
           className={cn(
             "w-[170px] h-[56px] bg-[#8BC53F] rounded-[45.5px] absolute transition-all duration-300 ease-in-out",
-            activeSection === "home" && "top-0",
-            activeSection === "tech" && "top-[84px]",
-            activeSection === "solutions" && "top-[168px]",
-            activeSection === "pricing" && "top-[252px]",
+            activeSection === "home" && "top-[25px]",
+            activeSection === "tech" && "top-[109px]",
+            activeSection === "solutions" && "top-[193px]",
+            activeSection === "pricing" && "top-[277px]",
           )}
         />
 
-        {/* Logo */}
-        <div className="relative left-[27px] top-[15px] text-xl font-medium text-black z-10">
+        {/* Logo - clickable to scroll to top */}
+        <button
+          onClick={() => scrollToSection("home")}
+          className="relative left-[27px] top-[15px] text-xl font-medium text-black z-10 hover:text-[#006837] transition-colors"
+        >
           agrify.ai
+        </button>
+
+        {/* Navigation menu items */}
+        <div className="relative left-[27px] top-[84px] z-10">
+          <nav className="space-y-[27px]">
+            <button
+              onClick={() => scrollToSection("tech")}
+              className={cn(
+                "block text-xl font-medium transition-colors py-3",
+                activeSection === "tech"
+                  ? "text-[#006837]"
+                  : "text-black hover:text-[#006837]",
+              )}
+            >
+              tech
+            </button>
+            <button
+              onClick={() => scrollToSection("solutions")}
+              className={cn(
+                "block text-xl font-medium transition-colors py-3",
+                activeSection === "solutions"
+                  ? "text-[#006837]"
+                  : "text-black hover:text-[#006837]",
+              )}
+            >
+              solutions
+            </button>
+            <button
+              onClick={() => scrollToSection("pricing")}
+              className={cn(
+                "block text-xl font-medium transition-colors py-3",
+                activeSection === "pricing"
+                  ? "text-[#006837]"
+                  : "text-black hover:text-[#006837]",
+              )}
+            >
+              pricing
+            </button>
+          </nav>
         </div>
       </div>
-
-      {/* Desktop navigation menu items */}
-      <div
-        className={cn(
-          "hidden lg:block fixed left-[85px] top-[459px] z-50 transition-all duration-300 ease-in-out",
-          isMenuVisible
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0",
-        )}
-      >
         <nav className="space-y-[27px]">
           <button
             onClick={() => scrollToSection("tech")}
@@ -217,9 +248,7 @@ const Index = () => {
           activeSection === "solutions" && "top-[550px]", // 382 + 168
           activeSection === "pricing" && "top-[634px]", // 382 + 252
           // Hide/show with menu
-          isMenuVisible
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0",
+          isMenuVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
         )}
       ></div>
 
