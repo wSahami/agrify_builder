@@ -230,11 +230,11 @@ const Index = () => {
           {/* Moving selection highlight */}
           <div
             className={cn(
-              "absolute left-[20px] w-[300px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out",
-              activeSection === "home" && "top-[-12px]", // Align with agrify.ai
-              activeSection === "tech" && "top-[36px]", // Align with tech
-              activeSection === "solutions" && "top-[84px]", // Align with solutions
-              activeSection === "pricing" && "top-[132px]", // Align with pricing
+              "absolute left-[20px] w-[300px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out z-0",
+              activeSection === "home" && "top-0", // Align with agrify.ai (first item)
+              activeSection === "tech" && "top-[72px]", // 72px = 48px (height of agrify.ai + margin) + 24px spacing
+              activeSection === "solutions" && "top-[120px]", // 120px = 72px + 48px (tech height)
+              activeSection === "pricing" && "top-[168px]", // 168px = 120px + 48px (solutions height)
             )}
           />
 
@@ -242,11 +242,11 @@ const Index = () => {
           <div
             className={cn(
               "absolute right-[40px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] transition-all duration-300 ease-in-out",
-              // Move with the active section relative to highlight positions
-              activeSection === "home" && "top-[-6px]",
-              activeSection === "tech" && "top-[42px]",
-              activeSection === "solutions" && "top-[90px]",
-              activeSection === "pricing" && "top-[138px]",
+              // Move with the active section - center aligned with highlight
+              activeSection === "home" && "top-[6px]", // 6px = (56px - 44px) / 2 to center in highlight
+              activeSection === "tech" && "top-[78px]", // 72px + 6px
+              activeSection === "solutions" && "top-[126px]", // 120px + 6px
+              activeSection === "pricing" && "top-[174px]", // 168px + 6px
             )}
           />
         </div>
