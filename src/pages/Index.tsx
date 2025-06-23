@@ -68,8 +68,8 @@ const Index = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Show menu when mouse is within 80px of the left edge
-      if (e.clientX <= 80) {
+      // Show menu when mouse is within 420px of the left edge (menu width + buffer)
+      if (e.clientX <= 420) {
         setIsMenuVisible(true);
       }
     };
