@@ -26,7 +26,7 @@ const Index = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Track active section and menu visibility based on scroll position
+  // Track active section and menu visibility based on scroll position and mouse movement
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -60,8 +60,20 @@ const Index = () => {
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      // Show menu when mouse is within 80px of the left edge
+      if (e.clientX <= 80) {
+        setIsMenuVisible(true);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, [lastScrollY]);
 
   return (
