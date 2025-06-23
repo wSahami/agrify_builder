@@ -14,6 +14,8 @@ import { useState, useEffect } from "react";
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   // Scroll to section functionality
   const scrollToSection = (sectionId: string) => {
@@ -24,9 +26,22 @@ const Index = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Track active section based on scroll position
+  // Track active section and menu visibility based on scroll position
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Handle menu visibility based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide menu
+        setIsMenuVisible(false);
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+        // Scrolling up or near top - show menu
+        setIsMenuVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+
+      // Handle active section tracking
       const sections = ["home", "tech", "solutions", "pricing"];
       const scrollPosition = window.scrollY + 200;
 
@@ -47,7 +62,7 @@ const Index = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <div className="min-h-screen bg-[#FFF4DE] relative">
