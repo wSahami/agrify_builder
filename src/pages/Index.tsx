@@ -235,10 +235,10 @@ const Index = () => {
             className={cn(
               "absolute left-[20px] w-[300px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out z-0",
               // Based on actual DOM measurements: agrify.ai has mb-6 (24px), others have py-3 (12px each)
-              activeSection === "home" && "top-[-16px]", // Center 56px highlight on agrify.ai text
-              activeSection === "tech" && "top-[32px]", // agrify.ai (48px total) + center tech
-              activeSection === "solutions" && "top-[80px]", // agrify.ai + tech + center solutions
-              activeSection === "pricing" && "top-[128px]", // agrify.ai + tech + solutions + center pricing
+              activeSection === "home" && "top-[320px]", // Center 56px highlight on agrify.ai text
+              activeSection === "tech" && "top-[380px]", // agrify.ai (48px total) + center tech
+              activeSection === "solutions" && "top-[440px]", // agrify.ai + tech + center solutions
+              activeSection === "pricing" && "top-[500px]", // agrify.ai + tech + solutions + center pricing
             )}
           />
 
@@ -247,10 +247,10 @@ const Index = () => {
             className={cn(
               "absolute right-[40px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] transition-all duration-300 ease-in-out",
               // Move with the active section - center aligned with highlight
-              activeSection === "home" && "top-[300px]", // -16px + 6px to center circle in highlight
-              activeSection === "tech" && "top-[38px]", // 32px + 6px
-              activeSection === "solutions" && "top-[86px]", // 80px + 6px
-              activeSection === "pricing" && "top-[134px]", // 128px + 6px
+              activeSection === "home" && "top-[320px]", // -16px + 6px to center circle in highlight
+              activeSection === "tech" && "top-[380px]", // 32px + 6px
+              activeSection === "solutions" && "top-[440px]", // 80px + 6px
+              activeSection === "pricing" && "top-[500px]", // 128px + 6px
             )}
           />
         </div>
