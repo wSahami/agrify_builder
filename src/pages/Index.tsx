@@ -247,7 +247,7 @@ const Index = () => {
             className={cn(
               "absolute right-[40px] w-[43px] h-[44px] bg-[#006837] rounded-[35.5px] transition-all duration-300 ease-in-out",
               // Move with the active section - center aligned with highlight
-              activeSection === "home" && "top-[-10px]", // -16px + 6px to center circle in highlight
+              activeSection === "home" && "top-[-100px]", // -16px + 6px to center circle in highlight
               activeSection === "tech" && "top-[38px]", // 32px + 6px
               activeSection === "solutions" && "top-[86px]", // 80px + 6px
               activeSection === "pricing" && "top-[134px]", // 128px + 6px
