@@ -236,7 +236,7 @@ const Index = () => {
               "absolute left-[20px] w-[300px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out z-0",
               // Based on actual DOM measurements: agrify.ai has mb-6 (24px), others have py-3 (12px each)
               activeSection === "home" && "top-[305px]", // Center 56px highlight on agrify.ai text
-              activeSection === "tech" && "top-[385px]", // agrify.ai (48px total) + center tech
+              activeSection === "tech" && "top-[380px]", // agrify.ai (48px total) + center tech
               activeSection === "solutions" && "top-[430px]", // agrify.ai + tech + center solutions
               activeSection === "pricing" && "top-[460px]", // agrify.ai + tech + solutions + center pricing
             )}
