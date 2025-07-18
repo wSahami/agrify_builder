@@ -238,7 +238,7 @@ const Index = () => {
               activeSection === "home" && "top-[305px]", // Center 56px highlight on agrify.ai text
               activeSection === "tech" && "top-[380px]", // agrify.ai (48px total) + center tech
               activeSection === "solutions" && "top-[435px]", // agrify.ai + tech + center solutions
-              activeSection === "pricing" && "top-[490px]", // agrify.ai + tech + solutions + center pricing
+              activeSection === "pricing" && "top-[485px]", // agrify.ai + tech + solutions + center pricing
             )}
           />
 
@@ -250,7 +250,7 @@ const Index = () => {
               activeSection === "home" && "top-[311px]", // -16px + 6px to center circle in highlight
               activeSection === "tech" && "top-[386px]", // 32px + 6px
               activeSection === "solutions" && "top-[441px]", // 80px + 6px
-              activeSection === "pricing" && "top-[496px]", // 128px + 6px
+              activeSection === "pricing" && "top-[491px]", // 128px + 6px
             )}
           />
         </div>
