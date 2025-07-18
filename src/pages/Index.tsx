@@ -237,7 +237,7 @@ const Index = () => {
               // Based on actual DOM measurements: agrify.ai has mb-6 (24px), others have py-3 (12px each)
               activeSection === "home" && "top-[305px]", // Center 56px highlight on agrify.ai text
               activeSection === "tech" && "top-[380px]", // agrify.ai (48px total) + center tech
-              activeSection === "solutions" && "top-[420px]", // agrify.ai + tech + center solutions
+              activeSection === "solutions" && "top-[430px]", // agrify.ai + tech + center solutions
               activeSection === "pricing" && "top-[460px]", // agrify.ai + tech + solutions + center pricing
             )}
           />
@@ -249,7 +249,7 @@ const Index = () => {
               // Move with the active section - center aligned with highlight
               activeSection === "home" && "top-[311px]", // -16px + 6px to center circle in highlight
               activeSection === "tech" && "top-[386px]", // 32px + 6px
-              activeSection === "solutions" && "top-[416px]", // 80px + 6px
+              activeSection === "solutions" && "top-[436px]", // 80px + 6px
               activeSection === "pricing" && "top-[466px]", // 128px + 6px
             )}
           />
