@@ -168,7 +168,7 @@ const Index = () => {
       {/* Desktop sidebar navigation with tan background */}
       <div
         className={cn(
-          "hidden lg:block fixed left-0 top-0 h-screen w-[400px] z-50 transition-all duration-300 ease-in-out",
+          "hidden lg:block fixed left-0 top-0 h-screen w-[300px] z-50 transition-all duration-300 ease-in-out",
           "bg-[#FFF4DE] p-8 border-r border-[#8BC53F]/20",
           isMenuVisible
             ? "translate-x-0 opacity-100"
