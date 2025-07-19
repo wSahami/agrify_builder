@@ -233,7 +233,7 @@ const Index = () => {
           {/* Moving selection highlight */}
           <div
             className={cn(
-              "absolute left-[20px] w-[200px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out z-0",
+              "absolute left-[20px] w-[160px] h-[56px] bg-[#8BC53F] rounded-[45.5px] transition-all duration-300 ease-in-out z-0",
               // Based on actual DOM measurements: agrify.ai has mb-6 (24px), others have py-3 (12px each)
               activeSection === "home" && "top-[305px]", // Center 56px highlight on agrify.ai text
               activeSection === "tech" && "top-[380px]", // agrify.ai (48px total) + center tech
